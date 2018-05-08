@@ -17,9 +17,12 @@ def call(){
     
     //Load a pipline config file(.yaml)
     //- https://github.com/jenkinsci/workflow-remote-loader-plugin
-    println "${env.GIT_REPO_URL}"
-    println "${env.GIT_BRANCH}"
+    //println "${env.GIT_REPO_URL}"
+    //println "${env.GIT_BRANCH}"
     println "${scm.userRemoteConfigs}"
+    println "${scm.repositories}"
+    println "${scm.brandhes}"
+    println "${scm.userRemoteConfigs.credentialsId}"
     
     def _yaml = fileLoader.fromGit('pipeline.yaml', scm.branches, scm.repositories, scm.userRemoteConfigs.credentialsId, '')
     println _yaml
