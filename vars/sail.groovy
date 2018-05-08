@@ -4,6 +4,7 @@ def call(){
   println "SYSTEM :: ${workspace.absolutePath}"
   println "SYSTEM :: ${env}"
   println "SYSTEM :: ${env.WORKSPACE}"
+  println "SYSTEM :: ${WORKSPACE}"
   
   //Load prepared Jenkinsfiles
   //- https://jenkins.io/doc/pipeline/examples/#load-from-file
