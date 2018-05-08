@@ -1,6 +1,6 @@
 def call(){
   println "SYSTEM :: run @shared-lib/vars/sail.groovy"
-  def workwpace = new File('.')
+  def workspace = new File('.')
   println "SYSTEM :: ${workspace}"
   
   //Load prepared Jenkinsfiles
