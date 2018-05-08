@@ -16,7 +16,7 @@ def call(def thiz){
   
   node {
     println "SYSTEM :: ${pwd()}"
-    def _default = load("${pwd()}/Jenkinsfile.default")
+    def _default = load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
     println _default
   }
 }
