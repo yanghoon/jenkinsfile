@@ -24,7 +24,7 @@ def call(){
     println "${scm.branches[0].name}"
     println "${scm.userRemoteConfigs[0].url}"
     
-    def _yaml = fileLoader.fromGit('pipeline.yaml', scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId, '')
+    def _yaml = fileLoader.fromGit('pipeline.yaml', scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '')
     println _yaml
   }
 }
