@@ -15,6 +15,13 @@ def call(){
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
     load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
     
-    println scm
+    //Load a pipline config file(.yaml)
+    //- https://github.com/jenkinsci/workflow-remote-loader-plugin
+    println '${env.GIT_REPO_URL}'
+    println '${env.GIT_BRANCH}'
+    println '${scm.userRemoteConfigs}'
+    
+    def _yaml = fileLoader.fromGit('pipeline.yaml', env.GIT_REPO_URL, env.GIT_BRANCH, scm.userRemoteConfigs.credentialsId, '')
+    println _yaml
   }
 }
