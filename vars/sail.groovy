@@ -6,6 +6,7 @@ def call(){
   //Load prepared Jenkinsfiles
   //- https://jenkins.io/doc/pipeline/examples/#load-from-file
   
-  def _default = load("${WORKSPACE}/Jenkinsfile.default")
+  //def _default = load("${WORKSPACE}/Jenkinsfile.default")
+  def _default = libraryResource 'Jenkinsfile.default'
   _default.start()
 }
