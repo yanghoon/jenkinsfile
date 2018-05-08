@@ -1,3 +1,5 @@
+import hudson.FilePath
+
 def call(def thiz){
   println "SYSTEM :: run @shared-lib/vars/sail.groovy"
   def workspace = new File('.')
