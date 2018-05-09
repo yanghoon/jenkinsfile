@@ -45,7 +45,7 @@ def call(){
         class: ${it.class}
         name : ${it}
         ${new File(it).text}
-        """
+        """.stripIndent()
       }
       
       _yaml = _files[0] ? new File(_files[0]).text : null
