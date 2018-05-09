@@ -1,3 +1,5 @@
+import static groovy.io.FileType.FILES
+
 def call(){
   def workspace = new File('.')
   println """
@@ -32,7 +34,7 @@ def call(){
     */
     
     def _yaml = fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
-      new File('.').eachFileRecurse (FileType.FILES) { println it.path }
+      new File('.').eachFileRecurse (FILES) { println it.path }
     }
     println _yaml
   }
