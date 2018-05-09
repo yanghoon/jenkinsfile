@@ -30,9 +30,9 @@ node {
           _containers << containerTemplate(it)
         }
         
-        echo _containers
-        
-        stage('kube') {
+        //echo _containers
+        //
+        //stage('kube') {
         
         podTemplate(label: label, containers: _containers) {
           node(label) {
@@ -46,7 +46,7 @@ node {
           } //node
         }
         
-        }
+        //}
     }    
     
     //Build dynamic stages
