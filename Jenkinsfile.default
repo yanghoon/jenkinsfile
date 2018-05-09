@@ -20,11 +20,11 @@ node {
     
     _config = yaml.load(_config)
     _config.stage.each {
-     stage(it) {
+      stage(it) {
         log """\
         | Load: ${_config[it]}
         | Dump:
-        | ${yaml.dump(_config[it])}
+        | ${yaml.dump([it: _config[it]])}
         """
       }
     }
