@@ -21,11 +21,11 @@ node {
     _config = yaml.load(_config)
     _config.stage.each {
       stage(it) {
-        log """\
+        echo """\
         | Load: ${_config[it]}
         | Dump:
         | ${yaml.dump([it: _config[it]])}
-        """
+        """.stripMargin()
       }
     }
 }
