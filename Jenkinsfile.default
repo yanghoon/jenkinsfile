@@ -20,12 +20,15 @@ node {
     //Check & Create slave containers
     //- https://github.com/jenkinsci/kubernetes-plugin
     //- https://stackoverflow.com/a/24189321
+    
+    echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
+    echo _config
+    echo _config.agent
+    echo _config.agent.containers
+        
     if(_config.agent?.containers){
         def label = "mypod-${UUID.randomUUID().toString()}"
         def _containers = []
-        
-        echo '!!!!!!!!!!!!!!!!!!!!!!!!!!!!'
-        echo _config.agent?.containers
         
         _config.agent?.containers.each {
           echo it
