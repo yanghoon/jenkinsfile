@@ -40,6 +40,14 @@ def call(){
       //_yaml = new File("${pwd()}", "pipeline.yaml").text
       _yaml = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
     }
+    
+    _yaml.each {
+      println """
+      class: ${it.class}
+      name : ${it}
+      ${it.text}
+      """
+    }
     println _yaml
   }
 }
