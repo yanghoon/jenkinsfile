@@ -34,7 +34,9 @@ def call(){
     */
     
     def _yaml = fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
-      new File('.').eachFileRecurse (FILES) { println it.path }
+      println "SYSTEM :: ${pwd()}"
+      
+      new File("${pwd()}/pipeline.yaml").text
     }
     println _yaml
   }
