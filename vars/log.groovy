@@ -14,10 +14,10 @@ def call(Map params = [:], def msg = null) {
       msg = params.msg
     }
     level = params.level ?: 'INFO'
-    method = Thread.currentThread().getStackTrace()[1].getMethodName();
+    method = Thread.currentThread().getStackTrace()[2].getMethodName();
 
     //echo "${getANSI(level)}${level}: ${msg}${getANSI()}"
-  echo "[${method} :: ${level}] ${msg}"
+  echo "[${method} :: ${level}]\n ${msg}"
 }
 
 def call(def msg) {
