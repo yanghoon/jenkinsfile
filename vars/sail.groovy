@@ -32,7 +32,7 @@ def call(){
     */
     
     def _yaml = fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
-      println "${pwd()}"
+      new File('.').eachFileRecurse (FileType.FILES) { println it.path }
     }
     println _yaml
   }
