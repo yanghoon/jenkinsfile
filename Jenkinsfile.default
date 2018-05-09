@@ -28,7 +28,7 @@ node {
         
         _config.agent?.containers.each {
           echo it
-          _containers << containerTemplate it
+          _containers << containerTemplate(it)
         }
         
         echo _containers
