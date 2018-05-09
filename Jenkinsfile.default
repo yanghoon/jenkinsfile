@@ -22,9 +22,10 @@ node {
     _config.stage.each {
       stage(it) {
         echo """\
-        | Load: ${_config[it]}
-        | Dump:
-        | ${yaml.dump([it: _config[it]])}
+        |**Load:
+        |${_config[it]}
+        |**Dump:
+        |${yaml.dump([(it): _config[it]])}
         """.stripMargin()
       }
     }
