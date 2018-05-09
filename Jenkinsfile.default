@@ -17,6 +17,32 @@ node {
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
     //println scm.properties
     
+    //Check & Create slave containers
+    //- https://stackoverflow.com/a/24189321
+    if(_config.agent?.containers){
+        def label = "mypod-${UUID.randomUUID().toString()}"
+        def _containers = []
+        
+        _config.agent?.containers.each {
+          _containers << containerTemplate it
+        }
+        
+        echo _containers
+        
+        podTemplate(label: label, containers: _containers) {
+          node(label) {
+            stage('Get a Maven project') {
+              container('maven') {
+                stage('Build a Maven project') {
+                  sh 'mvn --version'
+                }
+              }
+            } //stage
+          } //node
+        }
+    }    
+    
+    //Build dynamic stages
     _config = yaml.load(_config)
     _config.stage.each {
       stage(it) {
