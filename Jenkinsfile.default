@@ -8,7 +8,10 @@ def _config = pipelineConfig()
 node {
     echo '''\
       --------------------------------------------------------------------
-      + make scripted pipeline'''
+      + build scripted pipeline
+      + pipeline config
+      ${_config}
+      '''
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
     //println scm.properties
 }
