@@ -34,6 +34,7 @@ def call(){
     println _yaml
     */
     
+    /*
     def _yaml
     fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
       println "SYSTEM :: ${pwd()}"
@@ -54,5 +55,6 @@ def call(){
       _yaml = _files[0] ? new File(_files[0]).text : null
     }
     println _yaml
+    */
   }
 }
