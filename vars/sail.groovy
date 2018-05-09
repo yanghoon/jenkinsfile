@@ -17,11 +17,9 @@ def call(){
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
     load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
     
+    /*
     //Load a pipline config file(.yaml)
     //- https://github.com/jenkinsci/workflow-remote-loader-plugin
-    //println "${env.GIT_REPO_URL}"
-    //println "${env.GIT_BRANCH}"
-    /*
     println """
     ${scm.repositories}
     ${scm.userRemoteConfigs.credentialsId}
