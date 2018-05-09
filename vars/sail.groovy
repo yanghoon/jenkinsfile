@@ -45,7 +45,7 @@ def call(){
       println """
       class: ${it.class}
       name : ${it}
-      ${it.text}
+      ${it.text ?: ''}
       """
     }
     println _yaml
