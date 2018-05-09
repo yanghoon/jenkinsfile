@@ -45,6 +45,7 @@ def call(){
       println """
       class: ${it.class}
       name : ${it}
+      ${new File(it).text}
       """
     }
     println _yaml
