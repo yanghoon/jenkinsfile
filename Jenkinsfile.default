@@ -4,7 +4,8 @@ Load Jenkinsfile.default
 '''
 
 node {
-    def _config = pipelineConfig()
+    //def _config = pipelineConfig()
+    def _config = env._config
     
     echo '''\
       --------------------------------------------------------------------
