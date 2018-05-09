@@ -30,5 +30,10 @@ def call(){
     def _yaml = fileLoader.fromGit('pipeline.yaml', scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '')
     println _yaml
     */
+    
+    def _yaml = fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
+      println "${pwd()}"
+    }
+    println _yaml
   }
 }
