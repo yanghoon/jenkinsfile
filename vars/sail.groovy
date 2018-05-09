@@ -1,7 +1,7 @@
 import static groovy.io.FileType.FILES
 
 def call(){
-  println """
+  log """
   SYSTEM :: run @shared-lib/vars/sail.groovy
   SYSTEM :: ${new File('.').absolutePath}
   SYSTEM :: ${GroovySystem.version}
