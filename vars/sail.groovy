@@ -38,6 +38,8 @@ def call(){
       println "SYSTEM :: ${pwd()}"
       
       //_yaml = new File("${pwd()}", "pipeline.yaml").text
+      // Find list of file name
+      // http://mrhaki.blogspot.kr/2009/11/groovy-goodness-finding-files-with.html
       def _files = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
       
       _files.each {
