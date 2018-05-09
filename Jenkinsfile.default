@@ -1,4 +1,4 @@
-echo '''\
+log '''\
 --------------------------------------------------------------------
 Load Jenkinsfile.default
 '''
@@ -9,7 +9,7 @@ node {
     
     //Remove left indent
     //- http://mrhaki.blogspot.kr/2010/06/groovy-goodness-strip-leading-spaces_20.html
-    echo """\
+    log """\
       --------------------------------------------------------------------
       + build scripted pipeline
       + pipeline config
@@ -20,6 +20,6 @@ node {
     //println scm.properties
     
     stage('prepare') {
-      echo _config
+      log _config
     }
 }
