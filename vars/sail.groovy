@@ -1,11 +1,10 @@
 import static groovy.io.FileType.FILES
 
 def call(){
-  log """
-  SYSTEM :: run @shared-lib/vars/sail.groovy
-  SYSTEM :: ${new File('.').absolutePath}
-  SYSTEM :: ${GroovySystem.version}
-  """
+  log """\
+  |SYSTEM :: run @shared-lib/vars/sail.groovy
+  |SYSTEM :: ${new File('.').absolutePath}
+  |SYSTEM :: ${GroovySystem.version}"""
   
   // Errors
   //def _default = load("${WORKSPACE}/Jenkinsfile.default")
@@ -38,11 +37,10 @@ def call(){
       def _files = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
       
       _files.each {
-        println """\
-        class: ${it.class}
-        name : ${it}
-        ${new File(it).text}
-        """
+        log """\
+        | class: ${it.class}
+        | name : ${it}
+        | ${new File(it).text}"""
       }
       
       _yaml = _files[0] ? new File(_files[0]).text : null
