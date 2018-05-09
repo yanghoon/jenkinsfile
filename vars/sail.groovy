@@ -1,7 +1,9 @@
 def call(){
-  println "SYSTEM :: run @shared-lib/vars/sail.groovy"
   def workspace = new File('.')
-  println "SYSTEM :: ${workspace.absolutePath}"
+  println """
+  SYSTEM :: run @shared-lib/vars/sail.groovy
+  SYSTEM :: ${workspace.absolutePath}
+  """
   
   // Errors
   //def _default = load("${WORKSPACE}/Jenkinsfile.default")
