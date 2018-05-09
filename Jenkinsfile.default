@@ -10,8 +10,8 @@ node {
       echo """\
         Load Jenkinsfile.default
         |+ Loaded pipeline config
-        |${_config}""".stripMargin()
-        |+ Build scripted pipeline
+        |${_config}
+        |+ Build scripted pipeline""".stripMargin()
     }
     
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
