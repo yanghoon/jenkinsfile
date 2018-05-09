@@ -7,12 +7,15 @@ node {
     //def _config = pipelineConfig()
     def _config = env._config
     
+    //Remove left indent
+    //- http://mrhaki.blogspot.kr/2010/06/groovy-goodness-strip-leading-spaces_20.html
     echo """\
       --------------------------------------------------------------------
       + build scripted pipeline
       + pipeline config
       ${_config}
-      """
+      """.stripMargin("")
+    
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
     //println scm.properties
     
