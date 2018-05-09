@@ -18,16 +18,14 @@ node {
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
     //println scm.properties
     
-    stages {
-      _config = yaml.load(_config)
-      _config.stage.each {
-        stage(it) {
-          echo """\
-          | Load: ${_config[it]}
-          | Dump:
-          | ${yaml.dump(_config[it])}
-          """
-        }
+    _config = yaml.load(_config)
+    _config.stage.each {
+     stage(it) {
+        log """\
+        | Load: ${_config[it]}
+        | Dump:
+        | ${yaml.dump(_config[it])}
+        """
       }
     }
 }
