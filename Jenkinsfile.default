@@ -1,9 +1,14 @@
-echo    '--------------------------------------------------------------------'
-println 'Load Jenkinsfile.default'
+echo '''\
+--------------------------------------------------------------------
+Load Jenkinsfile.default
+'''
+
+def _config = pipelineConfig()
 
 node {
-    echo    '--------------------------------------------------------------------'
-    println '+ make scripted pipeline'
+    echo '''\
+      --------------------------------------------------------------------
+      + make scripted pipeline'''
     // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
     //println scm.properties
 }
