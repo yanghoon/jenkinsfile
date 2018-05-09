@@ -5,6 +5,7 @@ def call(){
   println """
   SYSTEM :: run @shared-lib/vars/sail.groovy
   SYSTEM :: ${workspace.absolutePath}
+  SYSTEM :: ${GroovySystem.version}
   """
   
   // Errors
