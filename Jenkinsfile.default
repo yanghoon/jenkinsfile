@@ -3,9 +3,9 @@ echo '''\
 Load Jenkinsfile.default
 '''
 
-def _config = pipelineConfig()
-
 node {
+    def _config = pipelineConfig()
+    
     echo '''\
       --------------------------------------------------------------------
       + build scripted pipeline
