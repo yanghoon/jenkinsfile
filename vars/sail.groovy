@@ -37,7 +37,8 @@ def call(){
     fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
       println "SYSTEM :: ${pwd()}"
       
-      _yaml = new File("${pwd()}/pipeline.yaml").text
+      //_yaml = new File("${pwd()}", "pipeline.yaml").text
+      _yaml = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
     }
     println _yaml
   }
