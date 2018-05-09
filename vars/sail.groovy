@@ -38,15 +38,17 @@ def call(){
       println "SYSTEM :: ${pwd()}"
       
       //_yaml = new File("${pwd()}", "pipeline.yaml").text
-      _yaml = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
-    }
-    
-    _yaml.each {
-      println """
-      class: ${it.class}
-      name : ${it}
-      ${new File(it).text}
-      """
+      def _files = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
+      
+      _yaml.each {
+        println """
+        class: ${it.class}
+        name : ${it}
+        ${new File(it).text}
+        """
+      }
+      
+      _yaml = _files[0] ? new File(_files[0]).text : null
     }
     println _yaml
   }
