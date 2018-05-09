@@ -41,7 +41,7 @@ def call(){
       def _files = new FileNameFinder().getFileNames("${pwd()}", 'pipeline.yaml pipeline.yml')
       
       _files.each {
-        println """
+        println """\
         class: ${it.class}
         name : ${it}
         ${new File(it).text}
