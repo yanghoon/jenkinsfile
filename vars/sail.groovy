@@ -13,7 +13,7 @@ def call(){
   //def _default = libraryResource 'Jenkinsfile.default'
   //println _default
   
-//  node {
+  node {
     println "SYSTEM :: ${pwd()}"
     
     //Load prepared Jenkinsfiles
@@ -56,5 +56,5 @@ def call(){
     }
     println _yaml
     */
-//  }
+  }
 }
