@@ -25,22 +25,28 @@ node {
     if(_config.agent?.containers){
         def label = "jenkins-${UUID.randomUUID().toString()}"
         def _containers = []
+        def _volumes = []
         
+        // create container
         _config.agent?.containers.each {
           _containers << containerTemplate(it)
         }
         
-        echo _containers.join('\n');
+        // create volumes
+        if(_config.agent.volumes){
+          _config.agent.volumes.each {
+            it.each { k, v ->
+              //Groovy dynamic method invokation
+              //- http://www.groovy-lang.org/metaprogramming.html#_dynamic_method_names
+              _volumes << "${k}"(v)
+            }
+          }
+        }
         
-        /*
-        _containers = [
-          containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
-          containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
-          containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl', ttyEnabled: true, command: 'cat')
-        ]
-        */
+        echo _containers.join('\n')
+        echo _volumes.join('\n')
         
-        podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: _containers) {
+        podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: _containers, volumes: _volumes) {
           node(label) {
             stage('* init stage on slave container ') {
               echo "init!"
