@@ -1,6 +1,6 @@
 private static final String TMP_FOLDER = 'libLoader'
 
-static def withGit(String repoUrl = DEFAULT_REPO_URL, String repoBranch = DEFAULT_BRANCH, 
+def call(String repoUrl = DEFAULT_REPO_URL, String repoBranch = DEFAULT_BRANCH, 
         String credentialsId = null, labelExpression = '', Closure body){
   Map<String, Object> loaded = new TreeMap<String, Object>()
     node(labelExpression) {
