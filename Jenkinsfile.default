@@ -39,7 +39,7 @@ node {
             //- https://stackoverflow.com/a/43269874
             //Groovy dynamic method invokation
             //- http://www.groovy-lang.org/metaprogramming.html#_dynamic_method_names
-            echo it
+            echo "${it.key} : ${it.value}"
             _volumes << "${it.key}"(it.value)
           }
         }
