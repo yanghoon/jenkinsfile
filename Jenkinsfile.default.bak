@@ -26,19 +26,15 @@ node {
         def label = "jenkins-${UUID.randomUUID().toString()}"
         def _containers = []
         
-        //_config.agent?.containers.each {
-        //  _containers << containerTemplate(it)
-        //}
+        _config.agent?.containers.each {
+          _containers << containerTemplate(it)
+        }
         
         //echo _containers
         //
         //stage('kube') {
         
-        podTemplate(label: label, serviceAccount: 'jenkins-release', containers: [
-        containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl', ttyEnabled: true, command: 'cat')
-    ]) {
+        podTemplate(label: label, serviceAccount: 'jenkins-release', containers: _containers) {
           node(label) {
             stage('Get a Maven project') {
               container('maven') {
@@ -54,7 +50,6 @@ node {
     }    
     
     //Build dynamic stages
-    /*
     _config.stage.each {
       stage(it) {
         echo """\
@@ -65,5 +60,4 @@ node {
         """.stripMargin()
       }
     }
-    */
 }
