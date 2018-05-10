@@ -11,7 +11,7 @@ def call(){
   //def _default = libraryResource 'Jenkinsfile.default'
   //println _default
   
-  node {
+//  node {
     //Load a pipline config file(.yaml)
     //- https://github.com/jenkinsci/workflow-remote-loader-plugin
     /*
@@ -51,5 +51,5 @@ def call(){
     //Load prepared Jenkinsfiles
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
     load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
-  }
+//  }
 }
