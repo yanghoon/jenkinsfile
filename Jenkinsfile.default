@@ -30,7 +30,8 @@ node {
           _containers << containerTemplate(it)
         }
         
-        //echo _containers
+        echo _containers.join('\n');
+        return
         
         _containers = [
           containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
