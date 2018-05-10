@@ -42,14 +42,22 @@ node {
         
         podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: _containers) {
           node(label) {
-            stage('Get a Maven project') {
-              echo "GET MAVEN PROJECT"
+            stage('* init stage on slave container ') {
+              echo "init!"
             }
             
-            container('maven') {
-              stage('Build a Maven project') {
-                sh 'mvn --version'
+            if(_config.build){
+              def action = { map ->
+                map.each { k, v ->
+                  container(k) {
+                    stage("** build ${k}") {
+                      sh "${v}"
+                    }
+                  }
+                }
               }
+              
+              _config.build.each action
             }
           } //node
         }
