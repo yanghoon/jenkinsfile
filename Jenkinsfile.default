@@ -24,32 +24,25 @@ node {
     //- https://stackoverflow.com/a/24189321
     if(_config.agent?.containers){
         def label = "jenkins-${UUID.randomUUID().toString()}"
+        def _agent = _config.agent
         def _containers = []
         def _volumes = []
         
         // create container
-        _config.agent?.containers.each {
+        _agent.containers.each {
           _containers << containerTemplate(it)
         }
         
         // create volumes
-        _config.agent?.volumes?.each {
+        _agent.volumes?.each {
           it.each {
-            _volumes << "${it.key}"(it.value)
-          }
-        }
-        /*
-        if(_config.agent.volumes){
-          _config.agent.volumes.each {
             //Loop of collection of map
             //- https://stackoverflow.com/a/43269874
             //Groovy dynamic method invokation
             //- http://www.groovy-lang.org/metaprogramming.html#_dynamic_method_names
-            echo "${it} ${it.key} : ${it.value}"
             _volumes << "${it.key}"(it.value)
           }
         }
-        */
         
         echo _containers.join('\n')
         echo _volumes.join('\n')
@@ -61,17 +54,17 @@ node {
             }
             
             if(_config.build){
-              def action = { map ->
-                map.each { k, v ->
-                  container(k) {
-                    stage("** build ${k}") {
-                      sh "${v}"
-                    }
+              def action = {
+                container(it.key) {
+                  stage("** BUILD: ${it.key}") {
+                    sh "${it.value}"
                   }
                 }
               }
               
-              _config.build.each action
+              _config.build.each {
+                it.each action
+              }
             }
           } //node
         }
