@@ -34,7 +34,7 @@ node {
         //
         //stage('kube') {
         
-        podTemplate(label: label, containers: _containers) {
+        podTemplate(label: label, serviceAccount: 'jenkins-release', containers: _containers) {
           node(label) {
             stage('Get a Maven project') {
               container('maven') {
