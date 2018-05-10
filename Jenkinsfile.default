@@ -34,19 +34,17 @@ node {
         //
         //stage('kube') {
         
-        podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: [
-        containerTemplate(name: 'maven', image: 'maven:3.5.2-jdk-8-alpine', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'docker', image: 'docker', ttyEnabled: true, command: 'cat'),
-        containerTemplate(name: 'kubectl', image: 'lachlanevenson/k8s-kubectl', ttyEnabled: true, command: 'cat')
-    ]) {
+        podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: _containers) {
           node(label) {
             stage('Get a Maven project') {
-              container('maven') {
-                stage('Build a Maven project') {
-                  sh 'mvn --version'
-                }
+              echo "GET MAVEN PROJECT"
+            }
+            
+            container('maven') {
+              stage('Build a Maven project') {
+                sh 'mvn --version'
               }
-            } //stage
+            }
           } //node
         }
         
