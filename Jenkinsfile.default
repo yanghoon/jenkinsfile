@@ -35,11 +35,12 @@ node {
         // create volumes
         if(_config.agent.volumes){
           _config.agent.volumes.each {
-            it.each { k, v ->
-              //Groovy dynamic method invokation
-              //- http://www.groovy-lang.org/metaprogramming.html#_dynamic_method_names
-              _volumes << "${k}"(v)
-            }
+            //Loop of collection of map
+            //- https://stackoverflow.com/a/43269874
+            //Groovy dynamic method invokation
+            //- http://www.groovy-lang.org/metaprogramming.html#_dynamic_method_names
+            
+            _volumes << "${it.key}"(it.value)
           }
         }
         
