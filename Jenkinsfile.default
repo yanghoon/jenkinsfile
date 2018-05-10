@@ -23,7 +23,7 @@ node {
     //- https://github.com/jenkinsci/kubernetes-plugin
     //- https://stackoverflow.com/a/24189321
     if(_config.agent?.containers){
-        def label = "mypod-${UUID.randomUUID().toString()}"
+        def label = "jenkins-${UUID.randomUUID().toString()}"
         def _containers = []
         
         _config.agent?.containers.each {
