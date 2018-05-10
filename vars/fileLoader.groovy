@@ -1,7 +1,7 @@
 private static final String TMP_FOLDER = 'libLoader'
 
 static def withGit(String repoUrl = DEFAULT_REPO_URL, String repoBranch = DEFAULT_BRANCH, 
-        String credentialsId = null, labelExpression = '', Closure<V> body){
+        String credentialsId = null, labelExpression = '', Closure body){
   Map<String, Object> loaded = new TreeMap<String, Object>()
     node(labelExpression) {
       //withTimestamper {
@@ -23,3 +23,5 @@ static def withGit(String repoUrl = DEFAULT_REPO_URL, String repoBranch = DEFAUL
       //}
     }
 }
+
+/* from 'https://github.com/jenkinsci/workflow-remote-loader-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/workflow/remoteloader/FileLoaderDSL/FileLoaderDSLImpl.groovy#L51' */
