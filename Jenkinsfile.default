@@ -50,6 +50,7 @@ node {
     }    
     
     //Build dynamic stages
+    /*
     _config.stage.each {
       stage(it) {
         echo """\
@@ -60,4 +61,5 @@ node {
         """.stripMargin()
       }
     }
+    */
 }
