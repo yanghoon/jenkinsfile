@@ -1,11 +1,9 @@
-private static final String TMP_FOLDER = 'libLoader'
-
-def call(String repoUrl = DEFAULT_REPO_URL, String repoBranch = DEFAULT_BRANCH, 
+def call(String repoUrl, String repoBranch, 
         String credentialsId = null, labelExpression = '', Closure body){
   Map<String, Object> loaded = new TreeMap<String, Object>()
     node(labelExpression) {
       //withTimestamper {
-        dir(TMP_FOLDER) {
+        dir('libLoader') {
           // Flush the directory
           deleteDir()
 
