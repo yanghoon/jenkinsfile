@@ -33,6 +33,12 @@ node {
         }
         
         // create volumes
+        _config.agent?.volumes?.each {
+          it.each {
+            _volumes << "${it.key}"(it.value)
+          }
+        }
+        /*
         if(_config.agent.volumes){
           _config.agent.volumes.each {
             //Loop of collection of map
@@ -43,6 +49,7 @@ node {
             _volumes << "${it.key}"(it.value)
           }
         }
+        */
         
         echo _containers.join('\n')
         echo _volumes.join('\n')
