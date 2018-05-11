@@ -1,23 +1,18 @@
-log '''Load Jenkinsfile.default'''
+/*
+ * Sandbox : https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
+ */
 
 node {
-    //def _config = pipelineConfig()
-    def _config = env._config
-    
     //Remove left indent
     //- http://mrhaki.blogspot.kr/2010/06/groovy-goodness-strip-leading-spaces_20.html
     stage('*parepare') {
       echo """\
-        Load Jenkinsfile.default
+        |Load Jenkinsfile.default
         |+ Loaded pipeline config
-        |${_config}
-        |+ Build scripted pipeline""".stripMargin()
+        |${env._config}""".stripMargin()
     }
     
-    // https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
-    //println scm.properties
-    
-    _config = yaml.load(_config)
+    def _config = yaml.load(env._config)
     
     //Check & Create slave containers
     //- https://github.com/jenkinsci/kubernetes-plugin
