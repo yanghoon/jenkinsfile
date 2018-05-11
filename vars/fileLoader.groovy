@@ -22,4 +22,8 @@ def call(String repoUrl, String repoBranch,
     }
 }
 
+def withGit(){
+  println 'xxx'
+}
+
 /* from 'https://github.com/jenkinsci/workflow-remote-loader-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/workflow/remoteloader/FileLoaderDSL/FileLoaderDSLImpl.groovy#L51' */
