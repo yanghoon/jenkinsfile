@@ -52,9 +52,14 @@ sail()
 
 ### Execute Pipeline Job 
 #### Create Pipeline Job with SCM
+To use prepared pipeline, select definition type as 'Pipeline script from SCM'.
+And write your repository info.
+If use private repository, click 'add' button for creating credentials.
 ![](https://user-images.githubusercontent.com/21324361/39913559-40b52ed2-553d-11e8-85a1-fd6e7ed4a4cd.png)
 
 #### Result of Job Execution
+![](https://user-images.githubusercontent.com/21324361/39915043-d5c95c60-5541-11e8-9955-618d931cd85e.png)
 
 #### On Blue Ocean
+![](https://user-images.githubusercontent.com/21324361/39915047-d82ab940-5541-11e8-926e-c000c0bd947a.png)
 
