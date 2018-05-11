@@ -41,11 +41,11 @@ node {
         echo _containers.join('\n')
         echo _volumes.join('\n')
         
-        podTemplate(label: label,
-            serviceAccount: 'jenkins-release',
-            slaveConnectTimeout:30,
-            containers: _containers,
-            volumes: _volumes) {
+        _agent.containers = _containers
+        _agent.volumes = _volumes
+        _agent.label = label
+        
+        podTemplate(_agent) {
               node(label) {
                 stage('* init stage on slave container ') {
                   echo "init!"
