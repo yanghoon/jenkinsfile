@@ -53,6 +53,9 @@ def call(){
     
     //Load prepared Jenkinsfiles
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
-    load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
+    //load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
+    
+    def pipeline = libraryResource 'Jenkinsfile.default'
+    script(pipeline)
   }
 }
