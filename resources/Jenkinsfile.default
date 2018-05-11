@@ -42,37 +42,38 @@ node {
         echo _containers.join('\n')
         echo _volumes.join('\n')
         
-        podTemplate(label: label, serviceAccount: 'jenkins-release', slaveConnectTimeout:30, containers: _containers, volumes: _volumes) {
-          node(label) {
-            stage('* init stage on slave container ') {
-              echo "init!"
-            }
-            
-            if(_config.build){
-              def action = {
-                container(it.key) {
-                  stage("** BUILD: ${it.key}") {
-                    sh "${it.value}"
+        podTemplate(label: label,
+            serviceAccount: 'jenkins-release',
+            slaveConnectTimeout:30,
+            containers: _containers,
+            volumes: _volumes) {
+              node(label) {
+                stage('* init stage on slave container ') {
+                  echo "init!"
+                }
+
+                def action = {
+                  container(it.key) {
+                    stage("** BUILD: ${it.key}") {
+                      sh "${it.value}"
+                    }
                   }
                 }
-              }
-              
-              _config.build.each {
-                it.each action
-              }
-            }
-          } //node
-        }
-    }    
+
+                _config.build?.each {
+                  it.each action
+                }
+              } //node
+            } //pipeline
+    } //_config.agent?.containers
     
     //Build dynamic stages
     _config.stage.each {
       stage(it) {
         echo """\
         |**Load:
-        |${_config[it]}
-        |**Dump:
-        |${yaml.dump([(it): _config[it]])}
+        |  ${_config[it]}
+        |  ${yaml.dump([(it): _config[it]])}
         """.stripMargin()
       }
     }
