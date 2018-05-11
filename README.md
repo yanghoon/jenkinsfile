@@ -6,6 +6,7 @@ You don't need to create complex Jenkinsfile for Pipeline.
 Instead, configure the pipline using a yaml and Jenkinsfile that contain single method call.
 
 ### Setting Your Project
+Create two file in your project root.
 #### Pipeline Config - pipeline.yaml
 [sample pipeline.yaml](https://github.com/yanghoon/jenkinsfile-test/blob/master/pipeline.yaml)
 ```yaml
