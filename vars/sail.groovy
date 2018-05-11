@@ -27,6 +27,7 @@ def call(){
     */
     
     println "SYSTEM :: ${pwd()}"
+    /*
     def _yaml
     fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
       println "SYSTEM :: ${pwd()}"
@@ -47,6 +48,8 @@ def call(){
     }
     println _yaml
     env._config = _yaml
+    */
+    loadConfig()
     
     //Load prepared Jenkinsfiles
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
