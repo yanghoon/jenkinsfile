@@ -1,6 +1,6 @@
 log '''Load Jenkinsfile.default'''
 
-//node {
+node {
     //def _config = pipelineConfig()
     def _config = env._config
     
@@ -81,4 +81,4 @@ log '''Load Jenkinsfile.default'''
         """.stripMargin()
       }
     }
-//}
+}
