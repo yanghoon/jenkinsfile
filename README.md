@@ -5,6 +5,33 @@
 
 ## Setting Your Project
 ### Pipeline Config - pipeline.yaml
+```yaml
+build:
+- maven: mvn --version
+- docker: docker version
+
+deploy:
+- k8s: k8s/*.yaml
+
+agent:
+  containers:
+  - name: maven
+    image: maven:3.3.9-jdk-8-alpine
+    ttyEnabled: true
+    command: cat
+  - name: docker
+    image: docker
+    ttyEnabled: true
+    command: cat
+  volumes:
+  - hostPathVolume:
+      hostPath: '/var/run/docker.sock'
+      mountPath: '/var/run/docker.sock'
+
+stage:
+- build
+- deploy
+```
 [sample pipeline.yaml](https://github.com/yanghoon/jenkinsfile-test/blob/master/pipeline.yaml)
 
 ### Scratch Jenkinsfile
