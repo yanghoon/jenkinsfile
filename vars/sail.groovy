@@ -28,7 +28,7 @@ def call(){
     
     println "SYSTEM :: ${pwd()}"
     def _yaml
-    fileLoader scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
+    fileLoader.withGit scm.userRemoteConfigs[0].url, scm.branches[0].name, scm.userRemoteConfigs.credentialsId[0], '', {
       println "SYSTEM :: ${pwd()}"
       
       //_yaml = new File("${pwd()}", "pipeline.yaml").text
