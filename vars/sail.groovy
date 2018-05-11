@@ -55,6 +55,8 @@ def call(){
     //- https://jenkins.io/doc/pipeline/examples/#load-from-file
     //load("${pwd()}@libs/sail-lib/Jenkinsfile.default")
     
+    //Path of shared library resources
+    //- https://github.com/jenkinsci/workflow-cps-global-lib-plugin/blob/master/src/main/java/org/jenkinsci/plugins/workflow/libs/LibraryAdder.java#L194
     def pipeline = libraryResource 'Jenkinsfile.default'
     script(pipeline)
   }
