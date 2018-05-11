@@ -10,7 +10,5 @@ static def load(String yaml){
 }
 
 static def dump(def yaml){
-  //Parse yaml file to collection
-  //- https://stackoverflow.com/a/41731617
   new Parser().dump(yaml)
 }
