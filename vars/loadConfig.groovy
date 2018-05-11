@@ -7,6 +7,6 @@ def call() {
     
     _files.each { log "Load '${it}'" }
       
-    env._yaml = _files[0] ? new File(_files[0]).text : null
+    env._config = _files[0] ? new File(_files[0]).text : null
   }
 }
