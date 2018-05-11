@@ -22,4 +22,7 @@ def withGit(String repoUrl, String repoBranch,
     }
 }
 
-/* from 'https://github.com/jenkinsci/workflow-remote-loader-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/workflow/remoteloader/FileLoaderDSL/FileLoaderDSLImpl.groovy#L51' */
+/*
+ * - Ref. Shared Library Type := https://jenkins.io/doc/book/pipeline/shared-libraries/#defining-global-variables
+ * - Original Source := https://github.com/jenkinsci/workflow-remote-loader-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/workflow/remoteloader/FileLoaderDSL/FileLoaderDSLImpl.groovy#L51
+ */
