@@ -1,7 +1,6 @@
 /*
  * Sandbox : https://github.com/jenkinsci/script-security-plugin/blob/master/src/main/resources/org/jenkinsci/plugins/scriptsecurity/sandbox/whitelists/blacklist
  */
-
 node {
     //Remove left indent
     //- http://mrhaki.blogspot.kr/2010/06/groovy-goodness-strip-leading-spaces_20.html
@@ -71,10 +70,8 @@ node {
     _config.stage.each {
       stage(it) {
         echo """\
-        |**Load:
-        |  ${_config[it]}
-        |  ${yaml.dump([(it): _config[it]])}
-        """.stripMargin()
+        |**Load: ${_config[it]}
+        |${yaml.dump([(it): _config[it]])}""".stripMargin()
       }
     }
 }
