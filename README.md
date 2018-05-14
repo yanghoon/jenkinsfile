@@ -7,7 +7,7 @@ Instead, configure the pipline using a yaml and Jenkinsfile that contain single 
 
 ### Set up Your Project
 Create two file in your project root.
-#### Pipeline Config - pipeline.yaml
+#### pipeline.yaml (Pipeline Config)
 [sample pipeline.yaml](https://github.com/yanghoon/jenkinsfile-test/blob/master/pipeline.yaml)
 ```yaml
 # Define your dynamic pipeline stage
@@ -44,7 +44,7 @@ agent:
       mountPath: '/var/run/docker.sock'
 ```
 
-#### Scratch Jenkinsfile
+#### Jenkinsfile (Scratch)
 [sample Jenkinsfile](https://github.com/yanghoon/jenkinsfile-test/blob/master/Jenkinsfile)
 ```groovy
 // Just add a below simple Jenkinsfile.
