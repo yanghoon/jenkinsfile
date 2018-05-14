@@ -1,4 +1,6 @@
 /* Will executed in node */
+import jenkins.scm.api.SCMFileSystem
+
 def call() {
   try (SCMFileSystem fs = SCMFileSystem.of(currentBuild.rawBuild.getParent(), scm)) {
     if (fs != null) {
