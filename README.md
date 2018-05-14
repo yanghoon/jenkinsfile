@@ -55,13 +55,13 @@ sail()
 
 ### Execute Pipeline Job 
 #### Create Pipeline Job with SCM
-To use prepared pipeline, select definition type as 'Pipeline script from SCM'.
+To use prepared pipeline, select definition type as `Pipeline script from SCM`.
 Write down your repository info.
-And also click 'add' button for creating credentials, if you use private repository.
+And also click `add` button for creating credentials, if you use private repository.
 ![](https://user-images.githubusercontent.com/21324361/39913559-40b52ed2-553d-11e8-85a1-fd6e7ed4a4cd.png)
 
 #### Result of Job Execution
-The library load your configration(.yaml) at '* prepared' stage.
+The library load your configration(.yaml) at `*prepared` stage.
 And then detect two stages using those config.
 Stages are run at k8s and master. In k8s, run and print version of tools by configured shell script.
 ![](https://user-images.githubusercontent.com/21324361/39915043-d5c95c60-5541-11e8-9955-618d931cd85e.png)
