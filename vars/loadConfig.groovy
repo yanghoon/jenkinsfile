@@ -1,9 +1,9 @@
 /* Will executed in node */
 import jenkins.scm.api.SCMFileSystem
 
-def call() {
+def call(def s) {
   println '1111'
-  SCMFileSystem fs = SCMFileSystem.of(currentBuild.rawBuild.getParent(), scm)
+  SCMFileSystem fs = SCMFileSystem.of(currentBuild.rawBuild.getParent(), s)
   println '2222'
     if (fs != null) {
       println '3333'
