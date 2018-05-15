@@ -3,6 +3,7 @@ import jenkins.scm.api.SCMFileSystem
 
 def call(def s) {
   println '1111'
+  s = new hudson.plugins.git.GitSCM('http://169.56.99.56:32336/yanghoon/jenkinsfile-test.git')
   SCMFileSystem fs = SCMFileSystem.of(currentBuild.rawBuild.getParent(), s)
   println '2222'
     if (fs != null) {
