@@ -1,5 +1,5 @@
 /* Will executed in node */
-import jenkins.scm.SCMFileSystem
+import jenkins.scm.api.SCMFileSystem
 
 def call() {
   println '1111'
