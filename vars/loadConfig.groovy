@@ -6,7 +6,8 @@ def call(def s) {
   println '1111'
   s = new GitSCM('http://169.56.99.56:32336/yanghoon/jenkinsfile-test.git')
   println '1111 - 1111'
-  s = [$class:GitSCM, branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '13be602e-61cc-469d-a8e9-b3ca297f929e', url: 'https://github.com/yanghoon/jenkinsfile-test.git']]]
+  //s = [$class:GitSCM, branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '13be602e-61cc-469d-a8e9-b3ca297f929e', url: 'https://github.com/yanghoon/jenkinsfile-test.git']]]
+  s = new GitSCM(branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '13be602e-61cc-469d-a8e9-b3ca297f929e', url: 'https://github.com/yanghoon/jenkinsfile-test.git']]]
   println '1111 - 2222'
   SCMFileSystem fs = SCMFileSystem.of(currentBuild.rawBuild.getParent(), s)
   println '2222'
